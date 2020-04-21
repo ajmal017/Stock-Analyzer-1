@@ -1,11 +1,9 @@
-#from selenium import webdriver
 from tkinter import *
 from tkinter import ttk
 import pandas as pd
 from models import model
 from candlestick import candlestick
 import webbrowser
-#from googlesearch import search
 import googlesearch
 
 
@@ -37,7 +35,7 @@ def clicked():
 
 # builds the window for the executable
 window = Tk()
-window.title("Stonks by Julian")
+window.title("Stock Analyzer by Julian Mucha")
 window.configure(background='black')
 window.geometry('600x250')
 
