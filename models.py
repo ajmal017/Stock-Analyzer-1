@@ -1,9 +1,7 @@
 import yfinance as yf
 import pandas as pd
-import numpy as np
 from sklearn.linear_model import LinearRegression
 import plotly.graph_objects as go
-import plotly.express as px
 import os
 
 
