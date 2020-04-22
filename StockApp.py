@@ -35,7 +35,7 @@ def clicked():
 
 # builds the window for the executable
 window = Tk()
-window.title("Stock Analyzer by Julian Mucha")
+window.title("Stock Analyzer")
 window.configure(background='black')
 window.geometry('600x250')
 
