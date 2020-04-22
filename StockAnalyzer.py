@@ -216,7 +216,7 @@ txtmodel.grid(column=2, row=3)
 def modelreturn():
     tickerstr = str(txtmodel.get()).upper()
     if tickerstr in tickers:
-        stock = model(tickerstr)
+        stock = lrmodel(tickerstr)
         results = stock.graphlrresults(tickerstr)
         return results
 
