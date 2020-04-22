@@ -16,7 +16,7 @@ The following packages are needed in order to run the application:
 
 1. Download or clone this repo to your machine.
 2. Extract the folder
-3. Use a Python interpreter to run the Stocks.py file
+3. Use a Python interpreter to run the StockApp.py file
 4. After a few seconds the GUI should display
 
 ### What Can You Do?
@@ -41,7 +41,7 @@ Now to get an overview of which each tab of the Stock Analyzer can do. There are
 ![image](https://user-images.githubusercontent.com/46336522/79904150-3dbf0d80-83e2-11ea-9e6a-e6e7a4aa3e5f.png)
 
 1. Enter a stock ticker from either the NYSE or the NASDAQ
-2. If you would like a more user-friendly version of the income statement, balance sheet, and statement of cash flows for your stock 
+2. If you would like a more user-friendly version of the income statement, balance sheet, and statement of cash flows for your stock
     * Select a radio button for the financial statement you want
     * Click select to open up a Marketwatch.com webpage that will display the chosen financial statement for the stock you chose
 3. If you would like the raw financial statements filed with the SEC, be sure that the stock ticker is entered and click the "Get" button. The SEC's EDGAR database will be opened and you can navigate to whichever financial statement you would like.
@@ -95,4 +95,4 @@ This is an ongoing project I'm working on with more features to be added. Some f
 
 If you have any questions, suggestions, or feature requests please email me at jmuchacode@gmail.com.
 
-Thanks for checking out my little hobby project and best wishes! :) 
+Thanks for checking out my little hobby project and best wishes! :)
