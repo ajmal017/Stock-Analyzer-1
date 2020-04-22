@@ -5,6 +5,7 @@ from models import model
 from candlestick import candlestick
 import webbrowser
 import googlesearch
+import lxml
 
 
 # pulls expected ticker symbols

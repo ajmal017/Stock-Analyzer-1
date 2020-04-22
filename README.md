@@ -11,6 +11,7 @@ The following packages are needed in order to run the application:
 * `pip install google`
 * `pip install yfinance`
 * `pip install sklearn`
+* `pip3 install lxml`
 
 ### Instructions
 
