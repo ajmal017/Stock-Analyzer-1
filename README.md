@@ -11,6 +11,8 @@ The following packages are needed in order to run the application:
 * `pip install google`
 * `pip install yfinance`
 * `pip install sklearn`
+* `pip install pmdarima`
+* `pip install datetime`
 * `pip3 install lxml`
 
 ### Instructions
@@ -59,12 +61,12 @@ Now to get an overview of which each tab of the Stock Analyzer can do. There are
 #### Modeling
 
 *The Modeling tab allows you to look at various developed models for future analysis.*
-*WIP-Linear Regression with more models to be developed and added*
+*WIP-Linear Regression and ARIMA models with more models to be developed and added*
 
 ![image](https://user-images.githubusercontent.com/46336522/79905414-3d277680-83e4-11ea-915d-47ebfc076fd6.png)
 
 1. Enter a stock ticker from either the NYSE or the NASDAQ
-2. Click "Model" to open a webpage which will display a Plotly graph showing modeling for the stock you chose
+2. Click "Linear Regression" to open a webpage which will display a Plotly graph showing a linear regression model for the stock you chose. Click "ARIMA" to open a webpage which will display a Plotly graph showing an ARIMA model for the stock you chose
 
 #### Candlestick Chart
 
