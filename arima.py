@@ -30,8 +30,9 @@ class arimamodel:
         stockdata = self.history(ticker)
         autoarimamodel = pm.auto_arima(stockdata.Close, start_p=1, start_q=1,
                                        test='adf',       # use adftest to find optimal 'd'
-                                       max_p=3, max_q=3,  # maximum p and q
-                                       m=12,              # frequency of series
+                                       max_p=3,
+                                       max_q=3,
+                                       m=4,              # frequency of series
                                        d=None,           # let model determine 'd'
                                        seasonal=True,
                                        start_P=0,
