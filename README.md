@@ -81,7 +81,7 @@ Now to get an overview of which each tab of the Stock Analyzer can do. There are
 ![image](https://user-images.githubusercontent.com/46336522/79906172-567cf280-83e5-11ea-95c3-e07c1d3cba03.png)
 
 1. Enter a stock ticker from either the NYSE or the NASDAQ
-2. Click "Get Results" display 10 stock related webpages from Google News
+2. Click "Get Results" to display 10 stock related webpages from Google News
 3. After a couple of seconds, a list of results will be displayed in the below box
 4. Select an article from the list
 5. Click "Open Article" to open the selected article in your web browser
