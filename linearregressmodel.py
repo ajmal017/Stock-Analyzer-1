@@ -2,21 +2,17 @@ import yfinance as yf
 import pandas as pd
 from sklearn.linear_model import LinearRegression
 import plotly.graph_objects as go
-import os
 
 
 class lrmodel:
     '''
-    Building class to develop the LTSM model to be used in the application.
-    LSTM and linear regression will be used.
+    Building class to develop the linear regression model to be used in the application.
     '''
 
     def __init__(self, ticker):
         ticker = ticker
         self.info = yf.Ticker(str(ticker)).info
-        #self.stockdata = self.history(period = 'max')
 
-        #stockdata = google.history(period = "max")
     def info(self):
         return self.info.info
 
