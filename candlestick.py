@@ -6,7 +6,7 @@ import yfinance as yf
 class candlestick:
     '''
     Build class to make a candlestick graph.
-    Candlestick graphs are great tools for performing technical analysis.abs
+    Candlestick graphs are great tools for performing technical analysis.
     '''
 
     def __init__(self, ticker):
