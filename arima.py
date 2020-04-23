@@ -4,14 +4,12 @@ import plotly.graph_objects as go
 from statsmodels.tsa.arima_model import ARIMA
 import pmdarima as pm
 from datetime import timedelta
-#from datetime import date
 import datetime
 
 
 class arimamodel:
     '''
-    Building class to develop the LTSM model to be used in the application.
-    LSTM and linear regression will be used.
+    Building class to develop the ARIMA model to be used in the application.
     '''
 
     def __init__(self, ticker):
