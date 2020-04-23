@@ -15,9 +15,7 @@ class arimamodel:
     def __init__(self, ticker):
         ticker = ticker
         self.info = yf.Ticker(str(ticker)).info
-        #self.stockdata = self.history(period = 'max')
 
-        #stockdata = google.history(period = "max")
     def info(self):
         return self.info.info
 
@@ -27,11 +25,11 @@ class arimamodel:
     def arimamodel(self, ticker):
         stockdata = self.history(ticker)
         autoarimamodel = pm.auto_arima(stockdata.Close, start_p=1, start_q=1,
-                                       test='adf',       # use adftest to find optimal 'd'
+                                       test='adf',       
                                        max_p=3,
                                        max_q=3,
-                                       m=4,              # frequency of series
-                                       d=None,           # let model determine 'd'
+                                       m=4,
+                                       d=None,
                                        seasonal=True,
                                        start_P=0,
                                        D=0,
