@@ -19,13 +19,6 @@ class lrmodel:
     def history(self, ticker):
         return yf.Ticker(str(ticker)).history(period='max')
 
-    def dataframe(self, ticker):
-        stockdata = self.history(ticker)
-        date = list(stockdata.index)
-        closeprice = list(stockdata['Close'])
-        dateandcloseprice = pd.DataFrame({'Date': date, 'Closing Price': closeprice})
-        return dateandcloseprice
-
     def linearregression(self, ticker):
         stockdata = self.history(ticker)
         num_train_vals = round(len(stockdata) * .80)
