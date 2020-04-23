@@ -31,7 +31,7 @@ Now to get an overview of which each tab of the Stock Analyzer can do. There are
 
 *The Stock History tab allows you to see the historical stock price chart*
 
-![image](https://user-images.githubusercontent.com/46336522/79903924-e4ef7500-83e1-11ea-936b-ad598484cd83.png)
+![image](https://user-images.githubusercontent.com/46336522/80057422-8bc43600-84f4-11ea-863f-04d879900af0.png)
 
 1. Enter a stock ticker from either the NYSE or the NASDAQ
 2. Click "Select" to open up a Marketwatch.com webpage which will display the chart of your selected stock's historical data
@@ -41,7 +41,7 @@ Now to get an overview of which each tab of the Stock Analyzer can do. There are
 
 *The Financial Statements tab allows you to look at financial statements*
 
-![image](https://user-images.githubusercontent.com/46336522/79904150-3dbf0d80-83e2-11ea-9e6a-e6e7a4aa3e5f.png)
+![image](https://user-images.githubusercontent.com/46336522/80057469-ad252200-84f4-11ea-860e-518cabd85de3.png)
 
 1. Enter a stock ticker from either the NYSE or the NASDAQ
 2. If you would like a more user-friendly version of the income statement, balance sheet, and statement of cash flows for your stock
@@ -53,7 +53,7 @@ Now to get an overview of which each tab of the Stock Analyzer can do. There are
 
 *The Analysis tab allows you to look at various points of analysis*
 
-![image](https://user-images.githubusercontent.com/46336522/79904807-46641380-83e3-11ea-8a30-8e09a8e62a8e.png)
+![image](https://user-images.githubusercontent.com/46336522/80057545-d180fe80-84f4-11ea-9f8a-f08f34a12eba.png)
 
 1. Enter a stock ticker from either the NYSE or the NASDAQ
 2. Click "Ok" to open up a Marketwatch.com webpage that will display various financial ratios and key indicators from analysts for the stock you chose
@@ -63,7 +63,7 @@ Now to get an overview of which each tab of the Stock Analyzer can do. There are
 *The Modeling tab allows you to look at various developed models for future analysis.*
 *WIP-Linear Regression and ARIMA models with more models to be developed and added*
 
-![image](https://user-images.githubusercontent.com/46336522/80042045-ff058200-84cb-11ea-9e55-948791f862fd.png)
+![image](https://user-images.githubusercontent.com/46336522/80057577-e52c6500-84f4-11ea-8c97-52f426c5cf5b.png)
 
 1. Enter a stock ticker from either the NYSE or the NASDAQ
 2. Click "Linear Regression" to open a webpage which will display a Plotly graph showing a linear regression model for the stock you chose. Click "ARIMA" to open a webpage which will display a Plotly graph showing an ARIMA model for the stock you chose
@@ -72,7 +72,7 @@ Now to get an overview of which each tab of the Stock Analyzer can do. There are
 
 *The Candlestick Chart tab allows you to look at a candlestick chart for technical analysis*
 
-![image](https://user-images.githubusercontent.com/46336522/79905669-97c0d280-83e4-11ea-9055-a858ac0313c6.png)
+![image](https://user-images.githubusercontent.com/46336522/80057657-173dc700-84f5-11ea-8e45-75f3812ac683.png)
 
 1. Enter a stock ticker from either the NYSE or the NASDAQ
 2. Click "Create Chart" to open a webpage which will display a Plotly candlestick chart for the stock you chose. The chart is interactive and will allow you to analyze trends over any past time period.
@@ -81,7 +81,7 @@ Now to get an overview of which each tab of the Stock Analyzer can do. There are
 
 *The Stock News tab allows you to look for stock related news*
 
-![image](https://user-images.githubusercontent.com/46336522/79906172-567cf280-83e5-11ea-95c3-e07c1d3cba03.png)
+![image](https://user-images.githubusercontent.com/46336522/80057717-4fdda080-84f5-11ea-9686-e7ac4f7fa97e.png)
 
 1. Enter a stock ticker from either the NYSE or the NASDAQ
 2. Click "Get Results" to display 10 stock related webpages from Google News
