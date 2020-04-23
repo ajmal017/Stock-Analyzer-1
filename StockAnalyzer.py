@@ -220,6 +220,7 @@ def modelreturn():
         results = stock.graphlrresults(tickerstr)
         return results
 
+
 def arima():
     tickerstr = str(txtmodel.get()).upper()
     if tickerstr in tickers:
@@ -227,12 +228,13 @@ def arima():
         results = stock.arimagraph(tickerstr)
         return results
 
+
 # button on the fourth tab
 btnmodel = Button(Modeling, text="Linear Regression Model", command=modelreturn)
 btnmodel.grid(column=3, row=3)
 
-btnarima = Button(Modeling, text = 'ARIMA', command = arima)
-btnarima.place(x = 330, y = 0)
+btnarima = Button(Modeling, text='ARIMA', command=arima)
+btnarima.place(x=330, y=0)
 
 
 '''
