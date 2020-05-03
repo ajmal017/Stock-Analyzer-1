@@ -1,4 +1,4 @@
-import numpy as np
+from numpy import cov
 import pandas as pd
 import yfinance as yf
 import statistics
@@ -58,7 +58,7 @@ class beta:
         ticker = self.ticker
         stock_returns = self.stock_returns(ticker)
         sp500_returns = self.sp500_returns()
-        covariance = np.cov(stock_returns, sp500_returns)[0][1]
+        covariance = cov(stock_returns, sp500_returns)[0][1]
         variance = statistics.variance(sp500_returns)
         beta = covariance / variance
         return beta
