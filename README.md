@@ -6,6 +6,7 @@ This is a stock analyzer application I developed to assist anyone interested in 
 
 The following packages are needed in order to run the application:
 * `pip install pandas`
+* `pip install numpy`
 * `pip install tkinter`
 * `pip install plotly`
 * `pip install google`
