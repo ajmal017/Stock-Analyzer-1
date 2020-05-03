@@ -17,6 +17,7 @@ class lrmodel:
         return self.info.info
 
     def history(self, ticker):
+        ticker = ticker
         return yf.Ticker(str(ticker)).history(period='max')
 
     def linearregression(self, ticker):

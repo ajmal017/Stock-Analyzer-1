@@ -7,9 +7,11 @@ import webbrowser
 import googlesearch
 import lxml
 from arima import arimamodel
-
+from betacalc import beta
 
 # pulls expected ticker symbols
+
+
 def gettickers():
     nysecomps = pd.read_csv(
         r'https://old.nasdaq.com/screening/companies-by-name.aspx?letter=0&exchange=nyse&render=download')
@@ -70,11 +72,11 @@ lblstockhistory.place(x=0, y=0)
 histstatuslbl = Label(HistoricalData)
 histstatuslbl.place(x=200, y=0)
 
-# text field on stock history tab
+# text field on stock history tab to enter the stock ticker you want
 txthistory = Entry(HistoricalData, width=8)
 txthistory.place(x=70, y=0)
 
-# button on stock history tab
+# button on stock history tab run the clicked function to open the requested ticker historical data
 btnstockhistory = Button(HistoricalData, text="Select", command=clicked)
 btnstockhistory.place(x=130, y=0)
 
@@ -96,7 +98,7 @@ Financial Statement tab
 lblfinstates = Label(FinancialStatements, text="Stock Ticker:")
 lblfinstates.place(x=0, y=0)
 
-# text field on Financial Statements tab
+# text field on Financial Statements tab asking for a stock ticker to be entered
 txtfinstates = Entry(FinancialStatements, width=8)
 txtfinstates.place(x=70, y=0)
 
@@ -183,34 +185,53 @@ def analysis():
         lblerror.configure(text='Please enter a valid NYSE or NASDAQ ticker')
 
 
-# text label on the third tab
+# text label on the Analysis tab prompting entry of a ticker
 lblanalysis = Label(Analysis, text="Get financial ratios: ")
 lblanalysis.grid(column=1, row=3)
 
-# text label updating on status of text typed
+# text label on the Analysis tab updating on the status of the text typed
 lblerror = Label(Analysis)
 lblerror.grid(column=1, row=5)
 
-# text field on the third tab
+# text field on the Analysis tab to enter the ticker of the stock you want analysis for
 txtanalysis = Entry(Analysis, width=8)
 txtanalysis.grid(column=2, row=3)
 
-# button on the third tab
+# function to calculate beta value of the selected stock against the S&P
+
+
+def calc_beta():
+    tickername = txtanalysis.get().upper()
+    if tickername in tickers:
+        stock = beta(tickername)
+        betaval = stock.beta_calculate()
+        lblbetavalue.configure(text=betaval)
+
+
+# button on the Analysis tab to return MarketWatch analysis for a typed ticker
 btnanalysis = Button(Analysis, text="Ok", command=analysis)
 btnanalysis.grid(column=3, row=3)
 
+# button to calculate daily calculated beta against the S&P 500
+btnbetacalc = Button(Analysis, text='Calculate Beta', command=calc_beta)
+btnbetacalc.grid(column=4, row=3)
+
+lblbetavalue = Label(Analysis)
+lblbetavalue.grid(column=5, row=3)
 
 '''
 Stock modeling tab
 '''
 
-# text label on the fourth tab
+# text label on the Stock Modeling tab, gives text prompt to enter ticker
 lblmodel = Label(Modeling, text="Get modeling of stock: ")
 lblmodel.grid(column=1, row=3)
 
-# text field on the fourth tab
+# text field on the Stock Modeling tab to enter the ticker
 txtmodel = Entry(Modeling, width=8)
 txtmodel.grid(column=2, row=3)
+
+# function to return the stock graph with linear regression results
 
 
 def modelreturn():
@@ -219,6 +240,8 @@ def modelreturn():
         stock = lrmodel(tickerstr)
         results = stock.graphlrresults(tickerstr)
         return results
+
+# function to return the stock graph with arima results with 30 day horizon
 
 
 def arima():
@@ -229,10 +252,11 @@ def arima():
         return results
 
 
-# button on the fourth tab
+# button on the Stock Modeling tab to return the linear regression model
 btnmodel = Button(Modeling, text="Linear Regression Model", command=modelreturn)
 btnmodel.grid(column=3, row=3)
 
+# button on the Stock Modeling tab to return the arima model
 btnarima = Button(Modeling, text='ARIMA', command=arima)
 btnarima.place(x=330, y=0)
 
@@ -241,13 +265,15 @@ btnarima.place(x=330, y=0)
 Candlestick Chart tab
 '''
 
-# text label on Candlestick Chart tab
+# text label on Candlestick Chart tab asking for entry of a stock ticker
 lblcandle = Label(CandlestickChart, text='Create candlestick chart for stock: ')
 lblcandle.grid(column=1, row=3)
 
-# text field on Candlestick Chart tab
+# text field on Candlestick Chart tab to enter the ticker you want a candlestick chart for
 txtcandle = Entry(CandlestickChart, width=8)
 txtcandle.grid(column=2, row=3)
+
+# function to return a candlestick chart of the entered ticker
 
 
 def candlechart():
@@ -258,7 +284,7 @@ def candlechart():
         return candlestickchart
 
 
-# button on Candlestick Chart tab
+# button on Candlestick Chart tab to actually run the function and return the graph
 btncandle = Button(CandlestickChart, text='Create Chart', command=candlechart)
 btncandle.grid(column=3, row=3)
 
@@ -267,7 +293,7 @@ btncandle.grid(column=3, row=3)
 Stock News tab
 '''
 
-# Prompt label for stock news tab
+# Prompt label for stock news tab asking for a stock ticker to find news
 lbl_stock_search = Label(StockNews, text='Select a stock ticker to search for:')
 lbl_stock_search.place(x=0, y=0)
 
