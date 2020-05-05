@@ -10,7 +10,7 @@ The following packages are needed in order to run the application:
 * `pip install tkinter`
 * `pip install plotly`
 * `pip install google`
-* `pip install yfinance`
+* `pip install git+https://github.com/rodrigobercini/yfinance.git`
 * `pip install sklearn`
 * `pip install pmdarima`
 * `pip install datetime`
