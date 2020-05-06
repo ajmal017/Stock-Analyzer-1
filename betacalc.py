@@ -24,40 +24,55 @@ class beta:
         ticker = self.ticker
         stock_hist = yf.Ticker(str(ticker)).history(period='5y').sort_index(ascending=False)
         return stock_hist
-        # return yf.Ticker(str(ticker)).history(period='max')
 
     def sp500(self):
         sp500_hist = yf.Ticker('^GSPC').history(period='5y').sort_index(ascending=False)
-        # return yf.Ticker('^GSPC').history(period = 'max')
         return sp500_hist
 
-    def stock_returns(self, ticker):
+    def evening(self):
         ticker = self.ticker
-        days = self.history(ticker)
+        stock = self.history(ticker)
+        sp500 = self.sp500()
+        if len(stock) > len(sp500):
+            differences = []
+            for i in stock.index:
+                if i not in sp500.index:
+                    differences = i
+            stock.drop([differences], inplace = True)
+        elif len(stock) < len(sp500):
+            differences = []
+            for i in sp500.index:
+                if i not in stock.index:
+                    differences = i
+            sp500.drop([differences], inplace = True)
+        return stock, sp500
+
+    def stock_percent_returns(self):
+        stock, sp500 = self.evening()
         stock_daily_change = []
         try:
-            for i, j in enumerate(list(days['Close'])):
+            for i, j in enumerate(list(stock['Close'])):
                 stock_daily_change.append(
-                    ((j - list(days['Close'])[i+1])/(list(days['Close'])[i+1]))*100)
+                    ((j - list(stock['Close'])[i+1])/(list(stock['Close'])[i+1]))*100)
             return stock_daily_change
         except IndexError:
             return stock_daily_change
 
-    def sp500_returns(self):
-        days = self.sp500()
+    def sp500_percent_returns(self):
+        stock, sp500 = self.evening()
         sp500_daily_change = []
         try:
-            for i, j in enumerate(list(days['Close'])):
+            for i, j in enumerate(list(sp500['Close'])):
                 sp500_daily_change.append(
-                    ((j - list(days['Close'])[i+1])/(list(days['Close'])[i+1]))*100)
+                    ((j - list(sp500['Close'])[i+1])/(list(sp500['Close'])[i+1]))*100)
             return sp500_daily_change
         except IndexError:
             return sp500_daily_change
 
     def beta_calculate(self):
         ticker = self.ticker
-        stock_returns = self.stock_returns(ticker)
-        sp500_returns = self.sp500_returns()
+        stock_returns = self.stock_percent_returns()
+        sp500_returns = self.sp500_percent_returns()
         covariance = cov(stock_returns, sp500_returns)[0][1]
         variance = statistics.variance(sp500_returns)
         beta = covariance / variance
