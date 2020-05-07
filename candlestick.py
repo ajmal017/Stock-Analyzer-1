@@ -13,9 +13,11 @@ class candlestick:
         ticker = ticker
         self.info = yf.Ticker(str(ticker)).info
 
+    # Gets historical data for the selected stock
     def history(self, ticker):
         return yf.Ticker(str(ticker)).history(period='max')
 
+    # Creates candlestick chart in the form of a Plotly graph
     def graph(self, ticker):
         stockdata = self.history(ticker)
         fig = go.Figure(data=[go.Candlestick(x=stockdata.index,

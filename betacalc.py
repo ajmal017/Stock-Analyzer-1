@@ -20,15 +20,18 @@ class beta:
     def info(self):
         return self.info.info
 
+    # Gets stock historical data for the past 5 years
     def history(self, ticker):
         ticker = self.ticker
         stock_hist = yf.Ticker(str(ticker)).history(period='5y').sort_index(ascending=False)
         return stock_hist
 
+    # Gets S&P 500 historical data for the past 5 years
     def sp500(self):
         sp500_hist = yf.Ticker('^GSPC').history(period='5y').sort_index(ascending=False)
         return sp500_hist
 
+    # Ensures that the dates of the historical data match up accordingly
     def evening(self):
         ticker = self.ticker
         stock = self.history(ticker)
@@ -47,6 +50,7 @@ class beta:
             sp500.drop([differences], inplace = True)
         return stock, sp500
 
+    # Calculates daily percentage change for the selected stock
     def stock_percent_returns(self):
         stock, sp500 = self.evening()
         stock_daily_change = []
@@ -58,6 +62,7 @@ class beta:
         except IndexError:
             return stock_daily_change
 
+    # Calculates daily percentage change for the S&P 500
     def sp500_percent_returns(self):
         stock, sp500 = self.evening()
         sp500_daily_change = []
@@ -69,6 +74,7 @@ class beta:
         except IndexError:
             return sp500_daily_change
 
+    # Calculates the beta value
     def beta_calculate(self):
         ticker = self.ticker
         stock_returns = self.stock_percent_returns()

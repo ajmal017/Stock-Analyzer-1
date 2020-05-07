@@ -16,6 +16,7 @@ class lrmodel:
     def info(self):
         return self.info.info
 
+    # Gets the stock historical data and ensures that no non-numerical data exists
     def history(self, ticker):
         ticker = ticker
         stock_history = yf.Ticker(str(ticker)).history(period='max')
@@ -30,6 +31,7 @@ class lrmodel:
         else:
             return stock_history
 
+    # Builds the linear regression model
     def linearregression(self, ticker):
         stockdata = self.history(ticker)
         num_train_vals = round(len(stockdata) * .80)
@@ -51,6 +53,7 @@ class lrmodel:
         testpredictions.index = X_test.index
         return testpredictions
 
+    # Graphs the results of the linear regression on a Plotly graph
     def graphlrresults(self, ticker):
         stockdata = self.history(ticker)
         num_train_vals = round(len(stockdata) * .80)

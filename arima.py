@@ -19,9 +19,7 @@ class arimamodel:
     def info(self):
         return self.info.info
 
-    #def history(self, ticker):
-    #    return yf.Ticker(str(ticker)).history(period='max')
-
+    # Gets the stock historical data and ensures that no non-numerical data exists
     def history(self, ticker):
         ticker = ticker
         stock_history = yf.Ticker(str(ticker)).history(period='max')
@@ -31,11 +29,12 @@ class arimamodel:
             for issue in issues.index:
                 if issue not in issue_index:
                     issue_index.append(issue)
-                    stock_history.drop([issue], inplace = True)
+                    stock_history.drop([issue], inplace=True)
             return stock_history
         else:
             return stock_history
 
+    # Builds the arima model using autoarima
     def arimamodel(self, ticker):
         stockdata = self.history(ticker)
         autoarimamodel = pm.auto_arima(stockdata.Close, start_p=1, start_q=1,
@@ -53,6 +52,7 @@ class arimamodel:
                                        stepwise=True)
         return autoarimamodel
 
+    # Makes stock close predictions for the next 3 weeks
     def futuredates(self, ticker):
         daysahead = 21
         futuredats = []
@@ -63,6 +63,7 @@ class arimamodel:
             futuredats.append(my_date)
         return futuredats
 
+    # Graphs the historical data and the future 3 weeks of predictions in a Plotly graph
     def arimagraph(self, ticker):
         stockdata = self.history(ticker)
         daysahead = 21
@@ -84,10 +85,10 @@ class arimamodel:
                                           line=dict(color='grey')))
 
         predfigarima.add_trace(go.Scatter(x=upper_series.index,
-                                          y=upper_series, name='Upper Bound',  # fill = 'tonexty',
+                                          y=upper_series, name='Upper Bound',
                                           line=dict(color='grey')))
 
-        predfigarima.add_trace(go.Scatter(x=fc_series.index, y=fc_series, name='Future Predictions',  # fill = 'tonexty',
+        predfigarima.add_trace(go.Scatter(x=fc_series.index, y=fc_series, name='Future Predictions',
                                           line=dict(color='blue', width=2)))
 
         predfigarima.update_layout(title=str(ticker) + '\'s Stock Price Predicted by ARIMA',
