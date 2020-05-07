@@ -54,10 +54,11 @@ Now to get an overview of which each tab of the Stock Analyzer can do. There are
 
 *The Analysis tab allows you to look at various points of analysis*
 
-![image](https://user-images.githubusercontent.com/46336522/80057545-d180fe80-84f4-11ea-9f8a-f08f34a12eba.png)
+![image](https://user-images.githubusercontent.com/46336522/81252842-f9905780-8ff4-11ea-9f71-5def64cc2106.png)
 
 1. Enter a stock ticker from either the NYSE or the NASDAQ
 2. Click "Ok" to open up a Marketwatch.com webpage that will display various financial ratios and key indicators from analysts for the stock you chose
+3. Click "Calculate Beta" to calculate the beta value between the selected stock and the S&P 500
 
 #### Modeling
 
