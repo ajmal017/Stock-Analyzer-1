@@ -18,7 +18,17 @@ class lrmodel:
 
     def history(self, ticker):
         ticker = ticker
-        return yf.Ticker(str(ticker)).history(period='max')
+        stock_history = yf.Ticker(str(ticker)).history(period='max')
+        if stock_history.isnull().values.any():
+            issues = stock_history[stock_history.isnull().values]
+            issue_index = []
+            for issue in issues.index:
+                if issue not in issue_index:
+                    issue_index.append(issue)
+                    stock_history.drop([issue], inplace = True)
+            return stock_history
+        else:
+            return stock_history
 
     def linearregression(self, ticker):
         stockdata = self.history(ticker)
