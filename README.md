@@ -16,11 +16,13 @@ The following packages are needed in order to run the application:
 * `pip install datetime`
 * `pip3 install lxml`
 
+If it is your first time running the stock analyzer application, you can run the "pipinstall.py" file which will automatically pip install the required packages. Afterwards you can simply run "StockAnalyzer.py" to use the application.
+
 ### Instructions
 
 1. Download or clone this repo to your machine.
 2. Extract the folder
-3. Use a Python interpreter to run the StockApp.py file
+3. Use a Python interpreter to run the StockAnalyzer.py file
 4. After a few seconds the GUI should display
 
 ### What Can You Do?
