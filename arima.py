@@ -19,13 +19,27 @@ class arimamodel:
     def info(self):
         return self.info.info
 
+    #def history(self, ticker):
+    #    return yf.Ticker(str(ticker)).history(period='max')
+
     def history(self, ticker):
-        return yf.Ticker(str(ticker)).history(period='max')
+        ticker = ticker
+        stock_history = yf.Ticker(str(ticker)).history(period='max')
+        if stock_history.isnull().values.any():
+            issues = stock_history[stock_history.isnull().values]
+            issue_index = []
+            for issue in issues.index:
+                if issue not in issue_index:
+                    issue_index.append(issue)
+                    stock_history.drop([issue], inplace = True)
+            return stock_history
+        else:
+            return stock_history
 
     def arimamodel(self, ticker):
         stockdata = self.history(ticker)
         autoarimamodel = pm.auto_arima(stockdata.Close, start_p=1, start_q=1,
-                                       test='adf',       
+                                       test='adf',
                                        max_p=3,
                                        max_q=3,
                                        m=4,
