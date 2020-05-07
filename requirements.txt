@@ -1,0 +1,8 @@
+pandas>=1.0.3
+numpy>=1.13.3
+sklearn==0.0
+google>=2.0.3
+lxml>=4.5.0
+git+https://github.com/rodrigobercini/yfinance.git
+plotly>=4.6.0
+pmdarima>=1.5.3
