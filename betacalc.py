@@ -3,7 +3,6 @@ import pandas as pd
 import yfinance as yf
 import statistics
 
-
 class beta:
     '''
     Class designed to calculate the beta value of a stock against
@@ -82,4 +81,4 @@ class beta:
         covariance = cov(stock_returns, sp500_returns)[0][1]
         variance = statistics.variance(sp500_returns)
         beta = covariance / variance
-        return beta
+        return round(beta,2)
