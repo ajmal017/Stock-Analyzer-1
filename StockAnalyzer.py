@@ -412,12 +412,6 @@ options_submit.place(x = 25, y = 110)
 lbl_options_price = Label(Options, text = '')
 lbl_options_price.place(x = 200, y = 110)
 
-''' CONTINUE HERE '''
-
-
-
-
-
 '''
 Builds notebook
 '''
