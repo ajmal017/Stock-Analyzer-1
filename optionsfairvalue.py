@@ -59,6 +59,3 @@ class options:
         strike, interest_rate, time_to_maturity = self.strike, self.interest_rate, self.time_to_maturity
         spot = self.current_market_price()
         return round((strike * np.exp(-(interest_rate) * time_to_maturity/365) * si.norm.cdf(-(self.d2_test())) - spot * si.norm.cdf(-(self.d1_test()))),2)
-
-op = options('GOOG', 1390, 5, 0.05)
-print(op.volatility())
