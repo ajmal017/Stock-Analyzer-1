@@ -15,6 +15,7 @@ The following packages are needed in order to run the application:
 * `pip install pmdarima`
 * `pip install datetime`
 * `pip3 install lxml`
+* `pip install sympy`
 
 If it is your first time running the stock analyzer application, you can run the "pipinstall.py" file which will automatically pip install the required packages. Afterwards you can simply run "StockAnalyzer.py" to use the application.
 
@@ -92,6 +93,19 @@ Now to get an overview of which each tab of the Stock Analyzer can do. There are
 3. After a couple of seconds, a list of results will be displayed in the below box
 4. Select an article from the list
 5. Click "Open Article" to open the selected article in your web browser
+
+#### Options
+
+*The Options tab allows you to price options using the Black-Scholes model (European), American model to follow*
+
+![image](https://user-images.githubusercontent.com/46336522/81447748-34a49f00-914b-11ea-8288-6f9a550efd3a.png)
+
+1. Enter the stock ticker from either the NYSE or the NASDAQ
+2. Enter a strike price for the option
+3. Enter the number of days until expiration
+4. Enter the interest rate as a decimal
+5. Select if you would like the call option price or the put option price
+6. Click "Calculate your options price" to return the call or put option price for the stock you selected
 
 ### Support
 
