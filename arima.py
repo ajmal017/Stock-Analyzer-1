@@ -16,9 +16,6 @@ class arimamodel:
         ticker = ticker
         self.info = yf.Ticker(str(ticker)).info
 
-    def info(self):
-        return self.info.info
-
     # Gets the stock historical data and ensures that no non-numerical data exists
     def history(self, ticker):
         ticker = ticker
