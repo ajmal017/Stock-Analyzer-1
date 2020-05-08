@@ -8,6 +8,7 @@ import googlesearch
 import lxml
 from arima import arimamodel
 from betacalc import beta
+from optionsfairvalue import options
 
 # pulls expected ticker symbols
 
@@ -52,6 +53,7 @@ Analysis = ttk.Frame(tab_control)
 Modeling = ttk.Frame(tab_control)
 CandlestickChart = ttk.Frame(tab_control)
 StockNews = ttk.Frame(tab_control)
+Options = ttk.Frame(tab_control)
 
 tab_control.add(HistoricalData, text='Historical Data')
 tab_control.add(FinancialStatements, text='Financial Statements')
@@ -59,6 +61,7 @@ tab_control.add(Analysis, text='Analysis')
 tab_control.add(Modeling, text='Modeling')
 tab_control.add(CandlestickChart, text='Candlestick Chart')
 tab_control.add(StockNews, text='Stock News')
+tab_control.add(Options, text = 'Options')
 
 
 '''
@@ -339,6 +342,81 @@ btn_open_art.place(x=490, y=30)
 #scrollbar.config(command = listbox.yview)
 
 listbox.configure(width=80)
+
+'''
+Options tab
+'''
+# Prompt to enter stock ticker
+lbl_options_ticker = Label(Options, text = 'Select a stock to price an option:')
+lbl_options_ticker.grid(column=1, row = 1)
+
+# Textbox to enter stock ticker
+txt_options_ticker = Entry(Options, width = 8)
+txt_options_ticker.grid(column=2, row = 1)
+
+# Prompt to enter strike price
+lbl_strike_price = Label(Options, text = 'Strike price:')
+lbl_strike_price.grid(column = 1, row =2)
+
+# Textbox to enter strike price
+txt_strike_price = Entry(Options, width = 5)
+txt_strike_price.grid(column=2, row = 2)
+
+# Prompt to enter days until expiration
+lbl_time_left = Label(Options, text = 'Days until expiration:')
+lbl_time_left.grid(column =1, row = 3)
+
+# Textbox to enter time left to options expiration
+txt_time_left = Entry(Options, width = 5)
+txt_time_left.grid(column = 2, row =3)
+
+# Prompt to enter interest rate
+lbl_interest = Label(Options, text = 'Enter the interest rate as a decimal:')
+lbl_interest.grid(column = 1, row = 4)
+
+# Textbox to enter interest rate
+txt_interest = Entry(Options, width = 5)
+txt_interest.grid(column = 2, row = 4)
+
+# Prompt to select a type of option to be priced
+lbl_option_type = Label(Options, text = 'Select an option to be priced:')
+lbl_option_type.grid(column = 1, row = 5)
+
+# Variable to store the type of option selected
+selected_option = IntVar()
+
+# Radio buttons to select the type of option that is to be priced
+call_option = Radiobutton(Options, text='Call Option', value=1, variable=selected_option)
+call_option.place(x=180, y=85)
+put_option = Radiobutton(Options, text='Put Option', value=2, variable=selected_option)
+put_option.place(x=270, y=85)
+
+# Function to price the option
+def options_pricing():
+    stock = str(txt_options_ticker.get()).upper()
+    statement = selected_option.get()
+    if stock in tickers:
+        options_price = options(stock, float(txt_strike_price.get()), float(txt_time_left.get()), float(txt_interest.get()))
+        if statement == 1:
+            lbl_options_price.configure(text='Call price for ' + str(stock) + " is $" + str(options_price.call_price()))
+        elif statement == 2:
+            lbl_options_price.configure(text='Put price for ' + str(stock) + " is $" + str(options_price.put_price()))
+    else:
+        lbl_options_price.configure(text='Please enter a valid NYSE or NASDAQ ticker')
+
+# Button to submit the entered values and get an options price
+options_submit = Button(Options, text = 'Calculate your options price', command = options_pricing)
+options_submit.place(x = 25, y = 110)
+
+# Label with price of selected option
+lbl_options_price = Label(Options, text = '')
+lbl_options_price.place(x = 200, y = 110)
+
+''' CONTINUE HERE '''
+
+
+
+
 
 '''
 Builds notebook
